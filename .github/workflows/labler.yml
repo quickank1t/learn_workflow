@@ -1,13 +1,10 @@
 name: PR approved
 
-on:
-  pull_request_review:
-    types: [submitted]
+on: [pull_request_target, issues]
 
 jobs:
   build:
     runs-on: [ solinas ]
-    if: ${{ (github.event.review.state == 'approved') && (github.event.pull_request.user.login != 'service-tip-git-serviceuser') && (github.event.pull_request.user.login != 'ospo-renovate ')}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
