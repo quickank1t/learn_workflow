@@ -1,0 +1,17 @@
+name: PR approved
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  build:
+    runs-on: [ solinas ]
+    if: ${{ (github.event.review.state == 'approved') && (github.event.pull_request.user.login != 'service-tip-git-serviceuser') && (github.event.pull_request.user.login != 'ospo-renovate ')}}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Apply label
+      uses: actions/labeler@v5
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
