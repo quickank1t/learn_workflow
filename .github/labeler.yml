@@ -1,3 +1,8 @@
-Code review complete:
-- changed-files:
-  - any-glob-to-any-file: '*'
+dependencies:
+  - yarn.lock
+  - package.json
+github:
+  - .github/*
+  - .github/**/*
+lint:
+  - .tslint.json
