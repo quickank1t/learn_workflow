@@ -11,5 +11,5 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Labeler
-      uses: actions/labeler@v5.0.0
+    - name: git
+      run: git diff --check
