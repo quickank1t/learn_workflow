@@ -9,7 +9,6 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    - name: git
-      run: git diff --check
+      - name: Label Conflicting Pull Requests
+        uses: eps1lon/actions-label-merge-conflict@v3.0.0
+            
